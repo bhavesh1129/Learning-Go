@@ -13,6 +13,7 @@ func main() {
 	content := "This needs to go in file -hello.com"
 	fmt.Println(content)
 
+	// for creating, majority of time we use os package
 	file, err := os.Create("./myTempFile.txt")
 
 	// if err != nil {
@@ -20,6 +21,7 @@ func main() {
 	// }
 	checkNilErr(err)
 
+	// for writing, majority of time we use io package
 	length, err := io.WriteString(file, content)
 	checkNilErr(err)
 
@@ -30,6 +32,8 @@ func main() {
 }
 
 func readFile(filename string) {
+
+	// for reading, majority of time we use ioutil package
 	databyte, err := ioutil.ReadFile(filename)
 
 	checkNilErr(err)
